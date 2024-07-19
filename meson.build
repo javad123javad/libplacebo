@@ -448,6 +448,7 @@ add_project_link_arguments(link_args, language: ['c', 'cpp'])
 # Global dependencies
 fs = import('fs')
 libm = cc.find_library('m', required: false)
+atomic = cc.find_library('atomic', required: false)
 thirdparty = meson.project_source_root()/'3rdparty'
 python = import('python').find_installation()
 python_env = environment()
@@ -473,7 +474,7 @@ else
     )
 endif
 
-build_deps = [ libm, threads ]
+build_deps = [ libm, threads, atomic]
 
 subdir('tools')
 subdir('src')
