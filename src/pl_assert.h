@@ -20,6 +20,12 @@
 #include <stdio.h>
 #include <assert.h>
 
+#if !defined (__cplusplus)
+#if (__STDC_VERSION__ < 202301L)
+#define static_assert _Static_assert
+#endif
+#endif
+
 #ifndef NDEBUG
 # define pl_assert assert
 #else
